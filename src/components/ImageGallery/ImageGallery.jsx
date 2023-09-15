@@ -20,18 +20,22 @@ state = {
   }
   
   hendlOpenModal = (largeImageURL) => {
-        this.setState({largeImageURL: largeImageURL ,openModal: true})
+        // оновлює в стейті 
+        // largeImageURL
+        // openModal
+        
   }
 
   hendlCloseModal = () => {
-this.setState({openModal: false})
+ // оновлює в стейті 
+ // openModal
   }
   
   loadMore = () => {
-    this.setState(prevState => ({ page: prevState.page + 1 }))
-  
+    // оновлює стейт
+    // збільшує page на 1
 }
-
+// це будемо розбирати на заняття
   fetchData = async (currentSearcPhoto, page) => {
     this.setState({ isLoading: true });
 
@@ -57,18 +61,12 @@ this.setState({openModal: false})
   }
   
 componentDidUpdate(prevProps, prevState) {
-    const prevSearcPhoto = prevProps.searcPhoto.search;
-    const currentSearcPhoto = this.props.searcPhoto.search;
-   
-   
- 
-  if (prevSearcPhoto !== currentSearcPhoto) {
-    this.fetchData(currentSearcPhoto, 1);
-  }
-  if (this.state.page !== prevState.page) {
-    console.log('object')
-    this.fetchData(currentSearcPhoto, this.state.page);
-  }
+    // викликає fetchData
+    // використовує перевірки 
+    // перша перевірка порівнює searcPhoto з нового і старого пропса
+    //викликає fetchData(searcPhoto, 1)
+    // друга перевірка порівнює page з нового і старого стейта
+    //викликає fetchData(searcPhoto, новий page)
 }
 
   render() {

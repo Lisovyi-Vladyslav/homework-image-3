@@ -8,7 +8,7 @@ import { SearchForm } from '../SearchForm/SearchForm'
   search: ''
 }
    handlSearcPphoto = (search) => {
-     this.setState({ search });
+    // оновлює стейт
    };
    
   render() {
