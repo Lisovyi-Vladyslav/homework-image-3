@@ -1,13 +1,31 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import { GalleryItem, GalleryImage } from './ImageGalleryItem.styled';
 
-export class ImageGalleryItem extends Component {
-  render() {
-    const {webformatURL, largeImageURL, hendlOpenModal} = this.props;
-    
-    return (
+// export class ImageGalleryItem extends Component {
+//   render() {
+//     const {webformatURL, largeImageURL, hendlOpenModal} = this.props;
+
+//     return (
+//     <>
+//       {
+//       <GalleryItem onClick={() => hendlOpenModal(largeImageURL)}>
+//         <GalleryImage src={webformatURL} alt=""/>
+//       </GalleryItem>
+//       }
+//     </>
+//     );
+//   }
+// }
+
+export const ImageGalleryItem = ({
+  webformatURL,
+  largeImageURL,
+  hendlOpenModal,
+}) => {
+
+  return (
     <>
       {
       <GalleryItem onClick={() => hendlOpenModal(largeImageURL)}>
@@ -15,8 +33,7 @@ export class ImageGalleryItem extends Component {
       </GalleryItem>
       }
     </>
-    );
-  }
+  );
 }
 
 ImageGalleryItem.propTypes = {

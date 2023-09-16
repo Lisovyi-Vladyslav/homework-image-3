@@ -1,41 +1,79 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import { Overlay, Modalka } from './Modal.styled'
 
-export class Modal extends Component {
-  componentDidMount() {
+// export class Modal extends Component {
+//   componentDidMount() {
+//     window.addEventListener("keydown", this.handlKeyDown);
+//   }
 
-      window.addEventListener("keydown", this.handlKeyDown);
-  }
+//   componentWillUnmount() {
+//     window.removeEventListener("keydown", this.handlKeyDown);
+//   }
 
-  componentWillUnmount() {
+//   handlKeyDown = event => {
+//      console.log(event.code)
+//       if (event.code === "Escape") {
+//         this.props.hendlCloseModal();
+//       }
+//     };
 
-      window.removeEventListener("keydown", this.handlKeyDown);
-  }
+//   handlBackdropClick = event => {
+//     if (event.currentTarget === event.target) {
+//       this.props.hendlCloseModal();
+//     }
 
-  handlKeyDown = event => {
-     console.log(event.code)
-      if (event.code === "Escape") {
-        this.props.hendlCloseModal();
-      }
-    };
+//     console.log(event.currentTarget)
+//     console.log(event.target)
+//   }
 
-  handlBackdropClick = event => {
+//   render() {
+//     return (
+//       <>
+//         <div>
+//           <Overlay onClick={this.handlBackdropClick}>
+//             <Modalka>
+//               {this.props.children}
+//             </Modalka>
+//           </Overlay>
+//         </div>
+//       </>
+//     );
+//   }
+// }
+
+export const Modal = ({hendlCloseModal, children}) => {
+  const handlKeyDown = (event) => {
+     if (event.code === "Escape") {
+       hendlCloseModal();
+     }
+   };
+
+
+  const handlBackdropClick = (event) => {
     if (event.currentTarget === event.target) {
-      this.props.hendlCloseModal();
+      hendlCloseModal();
     }
   }
 
-  render() {
+  useEffect(() => {
+     window.addEventListener("keydown", handlKeyDown);
+
+     return () => {
+      window.removeEventListener("keydown", handlKeyDown);
+    };
+
+  }, [])
+
     return (
       <>
         <div>
-          <Overlay onClick={this.handlBackdropClick}>
+          <Overlay onClick={handlBackdropClick}>
             <Modalka>
-              {this.props.children}
+              {children}
             </Modalka>
           </Overlay>
         </div>
       </>
     );
-  }
+
 }
