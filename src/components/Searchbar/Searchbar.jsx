@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import { Header } from './Searchbar.styled'
 
-
 export class Searchbar extends Component {
-
-
   render() {
     return(
       <>
@@ -12,8 +9,6 @@ export class Searchbar extends Component {
           {this.props.children}
         </Header>
       </>
-          
     );
-      
   }
 }

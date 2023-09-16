@@ -6,10 +6,10 @@ export class Button extends Component {
     return (
       <>
        <LoadMoreConteiner>
-        <LoadMore onClick={this.props.loadMore} >Load more</LoadMore>
+          <LoadMore onClick={this.props.loadMore} >Load more</LoadMore>
         </LoadMoreConteiner>
       </>
-      
+
     );
   }
 }

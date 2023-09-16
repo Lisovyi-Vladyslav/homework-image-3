@@ -4,18 +4,18 @@ import PropTypes from "prop-types";
 import { GalleryItem, GalleryImage } from './ImageGalleryItem.styled';
 
 export class ImageGalleryItem extends Component {
-
-
   render() {
-    const {webformatURL, largeImageURL, hendlOpenModal} = this.props
-    return (<>
+    const {webformatURL, largeImageURL, hendlOpenModal} = this.props;
+    
+    return (
+    <>
       {
-  <GalleryItem onClick={() => hendlOpenModal(largeImageURL)}>
-  <GalleryImage src={webformatURL} alt=""/>
-</GalleryItem>
-}      
-    </>)
-      ;
+      <GalleryItem onClick={() => hendlOpenModal(largeImageURL)}>
+        <GalleryImage src={webformatURL} alt=""/>
+      </GalleryItem>
+      }
+    </>
+    );
   }
 }
 

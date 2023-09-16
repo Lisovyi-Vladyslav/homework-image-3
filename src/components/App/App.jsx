@@ -5,24 +5,26 @@ import { SearchForm } from '../SearchForm/SearchForm'
 
  export class App extends Component {
    state = {
-  search: ''
-}
+    search: '',
+  }
+
    handlSearcPphoto = (search) => {
-    // оновлює стейт
+    this.setState({search: search});
+
+    console.log(search);
    };
-   
+
   render() {
     const {search} = this.state
-    
+
     return (
       <>
         <Searchbar>
           <SearchForm handlSearcPphoto={this.handlSearcPphoto} />
         </Searchbar>
+
         <ImageGallery searcPhoto={search} />
-      
       </>
-          
     );
   }
 }
